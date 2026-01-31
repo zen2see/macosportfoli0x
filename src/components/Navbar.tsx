@@ -1,4 +1,4 @@
-import { navLinks, navIcons } from "#constants/index.tsx"
+import { navLinks, navIcons } from "#constants/index.ts"
 import dayjs from "dayjs"
 
 const Navbar = () => {
