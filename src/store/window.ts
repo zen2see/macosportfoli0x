@@ -1,6 +1,6 @@
 import { create } from "zustand"
 import { immer } from "zustand/middleware/immer"
-import { WINDOW_CONIG } from "constants/index.ts"
+import { WINDOW_CONFIG, INITIAL_Z_INDEX } from "#constants/index.tsx"
 
 const useWindowStore = create(
   immer((set) => ({
