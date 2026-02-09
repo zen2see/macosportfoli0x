@@ -1,38 +1,27 @@
+export interface WindowData {
+  isOpen: boolean;
+  isMinimized: boolean;
+  isMaximized: boolean;
+  zIndex: number;
+  position: { x: number; y: number };
+  data: any;
+  title: string;
+  icon: string;
+}
+
+export const INITIAL_Z_INDEX = 1000;
+
 const navLinks = [
-  {
-    id: 1,
-    name: "Projects",
-    type: "finder",
-  },
-  {
-    id: 3,
-    name: "Contact",
-    type: "contact",
-  },
-  {
-    id: 4,
-    name: "Resume",
-    type: "resume",
-  },
+  { id: 1, name: "Projects", type: "finder" },
+  { id: 3, name: "Contact", type: "contact" },
+  { id: 4, name: "Resume", type: "resume" },
 ];
 
 const navIcons = [
-  {
-    id: 1,
-    img: "/icons/wifi.svg",
-  },
-  {
-    id: 2,
-    img: "/icons/search.svg",
-  },
-  {
-    id: 3,
-    img: "/icons/user.svg",
-  },
-  {
-    id: 4,
-    img: "/icons/mode.svg",
-  },
+  { id: 1, img: "/icons/wifi.svg" },
+  { id: 2, img: "/icons/search.svg" },
+  { id: 3, img: "/icons/user.svg" },
+  { id: 4, img: "/icons/mode.svg" },
 ];
 
 const dockApps = [
@@ -210,17 +199,6 @@ const gallery = [
   },
 ];
 
-export {
-  navLinks,
-  navIcons,
-  dockApps,
-  blogPosts,
-  techStack,
-  socials,
-  photosLinks,
-  gallery,
-};
-
 const WORK_LOCATION = {
   id: 1,
   type: "work",
@@ -247,7 +225,7 @@ const WORK_LOCATION = {
           description: [
             "The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.",
             "Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.",
-            "Think of it like walking into a flagship Nike store—but right from your phone or laptop.",
+            "Think of it like walking iresumento a flagship Nike store—but right from your phone or laptop.",
             "It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.",
           ],
         },
@@ -496,18 +474,30 @@ export const locations = {
   trash: TRASH_LOCATION,
 };
 
-const INITIAL_Z_INDEX = 1000;
+export const WINDOW_CONFIG: Record<string, WindowData> = dockApps.reduce((acc, app) => {
+  if (app.canOpen) {
+    acc[app.id] = {
+      isOpen: false,
+      isMinimized: false,
+      isMaximized: false,
+      zIndex: INITIAL_Z_INDEX,
+      position: { x: 100, y: 100 },
+      data: app.id === "finder" ? WORK_LOCATION : null,
+      title: app.name,
+      icon: app.icon,
+    };
+  }
+  return acc;
+}, {} as Record<string, WindowData>);
 
-const WINDOW_CONFIG = {
-  finder: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  contact: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  resume: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  safari: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  photos: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  terminal: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  txtfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
-  imgfile: { isOpen: false, zIndex: INITIAL_Z_INDEX, data: null },
+export {
+  navLinks,
+  navIcons,
+  dockApps,
+  blogPosts,
+  techStack,
+  socials,
+  photosLinks,
+  gallery,
 };
-
-export { INITIAL_Z_INDEX, WINDOW_CONFIG };
  

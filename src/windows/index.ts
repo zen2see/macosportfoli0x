@@ -1,3 +1,4 @@
 import Terminal from '#windows/Terminal.tsx';
-
-export { Terminal };
+import Safari from '#windows/Safari.tsx';
+import Resume from '#windows/Resume.tsx';
+export { Terminal, Safari, Resume };

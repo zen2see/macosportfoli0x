@@ -35,6 +35,18 @@ const Dock = () => {
       });
     };
 
+    const handleIconClick = (key) => {
+      const win = windows[key];
+      if (!win.isOpen) {
+        openWindow(key);
+      } else {
+        // If it's already open (even if minimized), we toggle/focus it
+        if (win.isMinimized) minimizeWindow(key); 
+        focusWindow(key);
+      }
+    };
+
+
     const handleMouseMove = (e) => {
       const { left } = dock.getBoundingClientRect();
       animateIcons(e.clientX - left);
