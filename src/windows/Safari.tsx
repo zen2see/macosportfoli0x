@@ -1,13 +1,12 @@
 import { ChevronLeft, ChevronRight, Copy, MoveRight, PanelLeft, Plus, Search, Share, ShieldHalf } from "lucide-react";
 import { blogPosts } from "#constants";
 import WindowWrapper from "#hoc/WindowWrapper";
-import WindowControls from "#components/WindowControls";
+import WindowControls from "#components/WindowControls"; // Import WindowControls
 
 const Safari = () => (
   <>
     <div id="window-header">
       <WindowControls target="safari" />
-
       <PanelLeft className="ml-10 icon" />
 
       <div className="flex items-center gap-1 ml-5">

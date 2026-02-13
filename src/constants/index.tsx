@@ -222,12 +222,7 @@ const WORK_LOCATION = {
           kind: "file",
           fileType: "txt",
           position: "top-5 left-10",
-          description: [
-            "The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.",
-            "Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.",
-            "Think of it like walking iresumento a flagship Nike store—but right from your phone or laptop.",
-            "It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.",
-          ],
+          filePath: "/files/Nike Project.txt",
         },
         {
           id: 2,
@@ -275,12 +270,7 @@ const WORK_LOCATION = {
           kind: "file",
           fileType: "txt",
           position: "top-5 right-10",
-          description: [
-            "AI Resume Analyzer is a smart tool that helps you perfect your resume with instant feedback.",
-            "Instead of guessing what recruiters want, you get AI-powered insights on keywords, formatting, and overall impact.",
-            "Think of it like having a career coach—pointing out strengths, fixing weaknesses, and boosting your chances of landing interviews.",
-            "It's built with Next.js and Tailwind, so it runs fast, looks professional, and works seamlessly on any device.",
-          ],
+          filePath: "/files/AI Resume Analyzer Project.txt",
         },
         {
           id: 2,
@@ -328,12 +318,7 @@ const WORK_LOCATION = {
           kind: "file",
           fileType: "txt",
           position: "top-5 left-10",
-          description: [
-            "Our Food Delivery App is a fast and convenient way to order meals from your favorite restaurants.",
-            "Instead of making calls or waiting in line, you can browse menus, customize orders, and track deliveries in real time.",
-            "Think of it like having your favorite restaurants in your pocket—ready to deliver anytime, anywhere.",
-            "It’s built with React Native, so it works smoothly on both iOS and Android with a clean, modern design.",
-          ],
+          filePath: "/files/Food Delivery App Project.txt",
         },
         {
           id: 2,
@@ -410,12 +395,7 @@ const ABOUT_LOCATION = {
       position: "top-60 left-5",
       subtitle: "Meet the Developer Behind the Code",
       image: "/images/adrian.jpg",
-      description: [
-        "Hey! I’m Adrian 👋, a web developer who enjoys building sleek, interactive websites that actually work well.",
-        "I specialize in JavaScript, React, and Next.js—and I love making things feel smooth, fast, and just a little bit delightful.",
-        "I’m big on clean UI, good UX, and writing code that doesn’t need a search party to debug.",
-        "Outside of dev work, you'll find me tweaking layouts at 2AM, sipping overpriced coffee, or impulse-buying gadgets I absolutely convinced myself I needed 😅",
-      ],
+      filePath: "/files/about-me.txt",
     },
   ],
 };
@@ -474,21 +454,53 @@ export const locations = {
   trash: TRASH_LOCATION,
 };
 
-export const WINDOW_CONFIG: Record<string, WindowData> = dockApps.reduce((acc, app) => {
-  if (app.canOpen) {
-    acc[app.id] = {
-      isOpen: false,
-      isMinimized: false,
-      isMaximized: false,
-      zIndex: INITIAL_Z_INDEX,
-      position: { x: 100, y: 100 },
-      data: app.id === "finder" ? WORK_LOCATION : null,
-      title: app.name,
-      icon: app.icon,
-    };
-  }
-  return acc;
-}, {} as Record<string, WindowData>);
+export const WINDOW_CONFIG: Record<string, WindowData> = {
+  ...dockApps.reduce((acc, app) => {
+    if (app.canOpen) {
+      acc[app.id] = {
+        isOpen: false,
+        isMinimized: false,
+        isMaximized: false,
+        zIndex: INITIAL_Z_INDEX,
+        position: { x: 100, y: 100 },
+        data: app.id === "finder" ? WORK_LOCATION : null,
+        title: app.name,
+        icon: app.icon,
+      };
+    }
+    return acc;
+  }, {} as Record<string, WindowData>),
+  text: {
+    isOpen: false,
+    isMinimized: false,
+    isMaximized: false,
+    zIndex: INITIAL_Z_INDEX,
+    position: { x: 100, y: 100 },
+    data: null,
+    title: "TextEdit",
+    icon: "/images/txt.png",
+  },
+  image: {
+    isOpen: false,
+    isMinimized: false,
+    isMaximized: false,
+    zIndex: INITIAL_Z_INDEX,
+    position: { x: 150, y: 150 },
+    data: null,
+    title: "Image Preview",
+    icon: "/images/image.png",
+  },
+  resume: {
+    isOpen: false,
+    isMinimized: false,
+    isMaximized: false,
+    zIndex: INITIAL_Z_INDEX,
+    position: { x: 150, y: 150 },
+    data: RESUME_LOCATION,
+    title: "Resume",
+    icon: "/icons/file.svg",
+  },
+};
 
 export {
   navLinks,

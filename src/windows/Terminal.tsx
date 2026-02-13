@@ -1,7 +1,7 @@
 import WindowWrapper from "#hoc/WindowWrapper";
 import { Check, Flag } from 'lucide-react';
 import { techStack } from "#constants/index.tsx";
-import WindowControls from "#components/WindowControls";
+import WindowControls from "#components/WindowControls"; // Import WindowControls
 
 const Terminal = () => {
   return (
@@ -37,7 +37,7 @@ const Terminal = () => {
         </ul>
         <div className="footnote">
           <p>
-            <Check size={20} /> 5 of 5 stacks loaded successfully 
+            <Check className="check" size={20} /> 5 of 5 stacks loaded successfully 
              (100%)
           </p>
           <p className="text-black">

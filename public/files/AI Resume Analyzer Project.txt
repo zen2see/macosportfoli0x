@@ -1,0 +1,4 @@
+AI Resume Analyzer is a smart tool that helps you perfect your resume with instant feedback.
+Instead of guessing what recruiters want, you get AI-powered insights on keywords, formatting, and overall impact.
+Think of it like having a career coach—pointing out strengths, fixing weaknesses, and boosting your chances of landing interviews.
+It's built with Next.js and Tailwind, so it runs fast, looks professional, and works seamlessly on any device.

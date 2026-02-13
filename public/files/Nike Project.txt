@@ -1,0 +1,4 @@
+The Nike eCommerce website is a sleek and modern platform designed for shopping the latest Nike collections.
+Instead of a simple online store, it delivers an immersive experience with bold visuals, interactive product displays, and smooth navigation.
+Think of it like walking iresumento a flagship Nike store—but right from your phone or laptop.
+It's built with Next.js and Tailwind, ensuring fast performance, responsive design, and a clean, premium look.
